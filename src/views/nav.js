@@ -9,15 +9,15 @@ const nav = document.querySelector('nav');
 //show nav bar depending on the user status 
 const navTemplate = (hasUser) => html`         
 <img src="./images/headphones.png">             
-<a href="#">Home</a>
+<a href="/">Home</a>
 <ul>
-    <li><a href="#">Catalog</a></li>
-    <li><a href="#">Search</a></li>
+    <li><a href="/catalog">Catalog</a></li>
+    <li><a href="/search">Search</a></li>
     ${hasUser ? html`
-    <li><a href="#">Create Album</a></li>
-    <li><a href="#">Logout</a></li>` : html`
-    <li><a href="#">Login</a></li>
-    <li><a href="#">Register</a></li>
+    <li><a href="/create">Create Album</a></li>
+    <li><a @click=${onLogout} href="javascript:void(0)">Logout</a></li>` : html`
+    <li><a href="/login">Login</a></li>
+    <li><a href="/register">Register</a></li>
     `}
 
 
