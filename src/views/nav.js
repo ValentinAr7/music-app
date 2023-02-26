@@ -23,8 +23,8 @@ const navTemplate = (hasUser) => html`
 
 </ul>
 `
-export function updateNav() {
-    const user = getUserData()
+export function updateNav() {           //get all user data from getUserData()
+    const user = getUserData()          // show specific nav bar depending on user status (true or false)
     render(navTemplate(user), nav)
 }
 
