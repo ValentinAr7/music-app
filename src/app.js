@@ -18,11 +18,13 @@ const main = document.getElementById('content')     //content needs to get to al
 page(decorateContext);
 page('/', showHome);
 page('/catalog', showCatalog);
-page('/catalog/:id', showDetails);
+page('/detail/:id', showDetails);
 page('/edit/:id', showEdit);
 page('/create', showCreate);
 page('/register', showRegister);
 page('/login', showLogin);
+page('/search', () => console.log('homeView'));
+
 
 updateNav()
 page.start()
