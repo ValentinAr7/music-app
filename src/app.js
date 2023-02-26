@@ -1,7 +1,7 @@
 // import * as api from './api/user.js'        //import *all items 
 // window.api = api      //assign the imported module object to the global object
 
-import {page, render } from './lib.js'
+import { page, render, nothing } from './lib.js'
 import { getUserData } from './util.js';
 import { showCatalog } from './views/catalog.js';
 import { showCreate } from './views/create.js';
