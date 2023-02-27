@@ -1,32 +1,64 @@
-import { getAll } from "../api/data.js";
+import { getAllAlbums } from "../api/data.js";
 import { html } from "../lib.js";
 
-const catalogTemplate = (pets) => html `
-<section id="dashboard">
-<h2 class="dashboard-title">Services for every animal</h2>
-    <div class="animals-board">
+const catalogTemplate = (allAlbums) => html `        <section id="catalogPage">
+<h1>All Albums</h1>
 
-    ${pets.length == 0 ? html`    <div>
-    <p class="no-pets">No pets in dashboard</p>
-</div>` : pets.map(petCardTemplate)}
-</div>
-</section>`
-
-const petCardTemplate = (pet) => html `
-<div class="animals-dashboard">
-    <div class="animals-board">
-        <article class="service-img">
-            <img class="animal-image-cover" src=${pet.image}>
-        </article>
-        <h2 class="name">${pet.name}</h2>
-        <h3 class="breed">${pet.breed}</h3>
-        <div class="action">
-            <a class="btn" href="/catalog/${pet._id}"</a>
+<div class="card-box">
+    <img src="./images/BrandiCarlile.png">
+    <div>
+        <div class="text-center">
+            <p class="name">Name: In These Silent Days</p>
+            <p class="artist">Artist: Brandi Carlile</p>
+            <p class="genre">Genre: Low Country Sound Music</p>
+            <p class="price">Price: $12.80</p>
+            <p class="date">Release Date: October 1, 2021</p>
+        </div>
+        <div class="btn-group">
+            <a href="#" id="details">Details</a>
         </div>
     </div>
+</div>
+
+<div class="card-box">
+    <img src="./images/pinkFloyd.jpg">
+    <div>
+        <div class="text-center">
+            <p class="name">Name: The Dark Side of the Moon</p>
+            <p class="artist">Artist: Pink Floyd</p>
+            <p class="genre">Genre: Rock Music</p>
+            <p class="price">Price: $28.75</p>
+            <p class="date">Release Date: March 1, 1973</p>
+        </div>
+        <div class="btn-group">
+            <a href="#" id="details">Details</a>
+        </div>
+    </div>
+</div>
+
+<div class="card-box">
+    <img src="./images/Lorde.jpg">
+    <div>
+        <div class="text-center">
+            <p class="name">Name: Melodrama</p>
+            <p class="artist">Artist: Lorde</p>
+            <p class="genre">Genre: Pop Music</p>
+            <p class="price">Price: $7.33</p>
+            <p class="date">Release Date: June 16, 2017</p>
+        </div>
+        <div class="btn-group">
+            <a href="#" id="details">Details</a>
+        </div>
+    </div>
+</div>
+
+<!--No albums in catalog-->
+<p>No Albums in Catalog!</p>
+
+</section>
 `
 
 export async function showCatalog(ctx){
-    const pets = await getAll();    //frrom data.js
-    ctx.render(catalogTemplate(pets));
+    const allAlbums = await getAll();    //frrom data.js
+    ctx.render(catalogTemplate(allAlbums));
 }
