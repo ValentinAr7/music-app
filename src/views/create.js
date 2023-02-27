@@ -41,15 +41,15 @@ const createTemplate = (onCreate) => html`
 export function showCreate(ctx) {
     ctx.render(createTemplate(createSubmitHandler(onCreate)))
 
-    async function onCreate({ name, imgUrl, price, releaseData, artist, genre, description }) {
-    if (name == '' || imgUrl == '' || price == '' || releaseData == '' || artist == '' || genre == ''  || description == '') {
+    async function onCreate({ name, imgUrl, price, releaseDate, artist, genre, description }) {
+    if (name == '' || imgUrl == '' || price == '' || releaseDate == '' || artist == '' || genre == ''  || description == '') {
         return alert('All fields are required')
     }
     await createAlbum({
         name,
         imgUrl,
         price,
-        releaseData,
+        releaseDate,
         artist,
         genre,
         description
