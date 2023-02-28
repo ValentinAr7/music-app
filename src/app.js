@@ -13,7 +13,7 @@ import { updateNav } from './views/nav.js';
 import { showRegister } from './views/register.js';
 import { showSearch } from './views/search.js';
 
-const main = document.getElementById('content')     //content needs to get to all views
+const main = document.getElementById('main-content')     //content needs to get to all views
 // document.getElementById('logoutBtn').addEventListener('click', onLogout)
 
 page(decorateContext);
