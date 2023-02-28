@@ -21,3 +21,7 @@ export async function getDetailsById(id){       //checked
 export async function deleteAlbumById(id){
     return del(endpoints.singleAlbum + id);
 }
+
+export async function updateAlbum(id, data){
+    return put(endpoints.singleAlbum + id, data)
+}
