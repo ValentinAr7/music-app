@@ -1,4 +1,4 @@
-import { editPet, getById, getDetailsById } from '../api/data.js'
+import { editPet, getById, getDetailsById, updateAlbum } from '../api/data.js'
 import {html} from '../lib.js'
 
 
@@ -43,17 +43,20 @@ export async function showEdit(ctx) {
 
     ctx.render(editTemplate(album, createSubmitHandler(onEdit)))
 
-    async function onEdit({ name, breed, age, weight, image }) {
-    if (name == '' || breed == '' || age == '' || weight == '' || image == '') {
-        return alert('All fields are required')
-    }
-    await editPet({
-        name,
-        breed,
-        age,
-        weight,
-        image
+    async function onEdit({ name, imgUrl, price, releaseDate, artist, genre, description }) {
+        if (name == '' || imgUrl == '' || price == '' || releaseDate == '' || artist == '' || genre == ''  || description == '') {
+            return alert('All fields are required')
+        }
+    await editAlbum({
+            name,
+            imgUrl,
+            price,
+            releaseDate,
+            artist,
+            genre,
+            description
     });
+
     ctx.page.redirect('/catalog' + id);
     }
 
