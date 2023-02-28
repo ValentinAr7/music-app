@@ -1,4 +1,4 @@
-import { getDetailsById } from "../api/data.js";
+import { deleteAlbumById, getDetailsById } from "../api/data.js";
 import { html, nothing } from "../lib.js";
 
 
@@ -19,20 +19,32 @@ const detailsTem = (album, isOwner) => html`
                 <p>Description ${album.description}</p>
             </div>
 
-            ${
-                isOwner ?
-                html`
+            ${isOwner ?
+        html`
                 <div class="actionBtn">
                 <a href="/edit/${album._id}" class="edit">Edit</a>
-                <a href="#" class="remove">Delete</a>
+                <a @click=${onDelete}href="javascript:void(0)" class="remove">Delete</a>
                 </div>
                 ` : nothing
-            }`
+    }
+            </div>
+            </div>
+        </section>
+            `
 
-            export async function showDetails(ctx){
-                const id = ctx.params.id
-                const album = await getDetailsById(id) 
-                const isOwner = album._ownerId === ctx.user._id
-                ctx.render(detailsTem(album, isOwner))
-            }
+export async function showDetails(ctx) {             //checked
+    const id = ctx.params.id
+    const album = await getDetailsById(id)
+    const isOwner = album._ownerId === ctx.user._id
+    ctx.render(detailsTem(album, isOwner, onDelete))
+
+    async function onDelete(){
+        const userConfirm = confirm('Are you sure?')
+        if(!userConfirm){
+            return
+        }
+        await deleteAlbumById(id) 
+        ctx.page.redirect('/catalog')
+    }
+}
 
