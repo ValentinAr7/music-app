@@ -1,5 +1,6 @@
 import { html, nothing } from "../lib.js";
 import { getAllAlbums } from "../api/data.js";
+import { getUserData } from "../util.js";
 
 const cardTemplate  =  (album, hasUser) => html `            
 <div class="card-box">
