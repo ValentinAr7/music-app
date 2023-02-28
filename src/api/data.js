@@ -12,3 +12,7 @@ export async function createAlbum(data){
 export async function getAllAlbums(){
     return get(endpoints.getAllAlbums)
 }
+
+export async function getDetailsById(id){
+    return get(endpoints.albums + id)
+}
