@@ -1,11 +1,9 @@
 import { logout } from '../api/user.js';
 import { html, render, page } from '../lib.js'
 import { getUserData } from '../util.js';
+
+
 const nav = document.querySelector('nav');
-
-
-
-
 //show nav bar depending on the user status 
 const navTemplate = (hasUser) => html`         
 <img src="./images/headphones.png">             
@@ -19,8 +17,6 @@ const navTemplate = (hasUser) => html`
     <li><a href="/login">Login</a></li>
     <li><a href="/register">Register</a></li>
     `}
-
-
 </ul>
 `
 export function updateNav() {           //get all user data from getUserData()
