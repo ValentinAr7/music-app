@@ -2,7 +2,7 @@ import { deleteAlbumById, getDetailsById } from "../api/data.js";
 import { html, nothing } from "../lib.js";
 
 
-const detailsTem = (album, isOwner) => html`
+const detailsTem = (album, isOwner, onDelete) => html`
 <section id="detailsPage">
     <div class="wrapper">
         <div class="albumCover">
